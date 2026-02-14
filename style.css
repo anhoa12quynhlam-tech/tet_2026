@@ -1,0 +1,63 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0a0000; /* Đỏ đen sang trọng */
+}
+
+#canvas {
+  display: block;
+  touch-action: none; /* Ngăn chặn cuộn trang khi chạm vào pháo hoa */
+}
+
+.lantern-container {
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 10;
+}
+
+.lantern {
+  width: 40px; /* Nhỏ hơn cho mobile */
+  height: 35px;
+  background: #e60000;
+  border-radius: 40% / 10%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(230, 0, 0, 0.6);
+  animation: swing 3s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+.lantern::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 1px;
+  height: 15px;
+  background: #888;
+}
+
+.lantern::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 45%;
+  width: 3px;
+  height: 10px;
+  background: #ffd700;
+}
+
+@keyframes swing {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(8deg);
+  }
+}
